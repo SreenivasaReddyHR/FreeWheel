@@ -1,9 +1,11 @@
 {
-  "name": "nextjs-mui-redux-saga-with-typescript",
+  "name": "tr-next",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "next",
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.57",
     "@material-ui/styles": "next",
     "@zeit/next-typescript": "latest",
     "axios": "latest",
@@ -14,6 +16,7 @@
     "react": "latest",
     "react-dom": "latest",
     "react-redux": "next",
+    "react-router-dom": "^5.2.0",
     "redux": "latest",
     "redux-saga": "latest"
   },

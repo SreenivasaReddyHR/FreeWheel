@@ -15,6 +15,10 @@ interface IProps {
   store: any;
 }
 
+const EmptyLayout = ({children})=>{
+  return <>{children}</>
+}
+
 class MyApp extends App<IProps> {
   static async getInitialProps({
     Component,
@@ -42,18 +46,18 @@ class MyApp extends App<IProps> {
 
   render() {
     const { Component, pageProps, store } = this.props;
+    const Layout = Component.Layout || EmptyLayout
 
     return (
       <Container>
-        <Head>
-          <title>My page</title>
-        </Head>
-        <ThemeProvider theme={theme}>
-          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-          <CssBaseline />
-          <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+        <CssBaseline />
+        <Provider store={store}>
+        <Layout>
             <Component {...pageProps} />
-          </Provider>
+        </Layout>
+        </Provider>
         </ThemeProvider>
       </Container>
     );

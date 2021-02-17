@@ -1,8 +1,8 @@
 import * as React from "react";
+import { useRouter } from 'next/router'
 
-import Layout from "../src/Layouts/layout";
-import { loadData } from "../src/redux/Services/actions";
-import { loadData as loadSearchData } from "../src/redux/Search/actions";
+import Layout from "../../src/Layouts/layout";
+import { loadData } from "../../src/redux/Services/actions";
 
 interface Props {
   dispatch: any;
@@ -10,8 +10,11 @@ interface Props {
   getInitialProps: any;
 }
 
-const Index: any = () => {
-  return <>home page</>
+const Index: any = (props:any) => {
+    const router = useRouter()
+    const { status } = router.query
+    return <> {status!=='NON-DISRUPTED'&&<h3>DISRUPTED</h3>}<div>{status}</div></>
+
 };
 Index.Layout = Layout;
 Index.getInitialProps = async (props: Props) => {
@@ -21,9 +24,6 @@ Index.getInitialProps = async (props: Props) => {
     store.dispatch(loadData());
   }
 
-  if (!store.getState().search ||Object.keys( store.getState().search).length<1) {
-    store.dispatch(loadSearchData(''));
-  }
   return { isServer };
 };
 
