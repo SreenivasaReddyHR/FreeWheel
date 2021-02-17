@@ -5,7 +5,7 @@ const getUserData = async (searchText: string) => {
     const res = await api.get(`https://api.tfl.gov.uk/BikePoint/Search?query=${searchText}`);
     return res.data;
   } catch (error) {
-    console.error(error);
+    console.error("Error: ",error);
   }
 };
 

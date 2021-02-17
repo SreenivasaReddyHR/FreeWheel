@@ -29,8 +29,7 @@ const Index: any = (props:any) => {
   //   const mList = getSearchResults(searchText, data)
   //   setOptions([...mList])
   // },[data])
-  
-  console.log("@@@data:: ", data);
+
     return <> 
 
 <Typography>
